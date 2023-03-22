@@ -1,0 +1,41 @@
+/*.boton{
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;	
+}*/
+
+/*.margin-top{
+	margin-top: 20rem;
+}
+*/
+/*
+body {
+    
+   
+  }*/
+
+
+  body{
+	background-image: url('fondoTenue2.jpg');
+	background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+	border: 2px solid red;
+	height: 100vh;
+	width: 100vw;
+  }
+
+.div-button{	
+	border: 2px solid blue;
+	
+}
+
+
+.list-button{
+	padding-top: 19rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-content: center;
+}
