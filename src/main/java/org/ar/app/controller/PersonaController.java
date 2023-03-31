@@ -41,9 +41,20 @@ public class PersonaController extends BaseApiResponse {
 		return success(service.getPersonaById(id)) ;
 	}
 	
+//	@PostMapping("/createPersona")
+//	public ApiResponseUtil<?> createPersona(@RequestBody Persona persona){
+//		return created(service.createPersona(persona));
+//	}
+	
 	@PostMapping("/createPersona")
-	public ApiResponseUtil<?> createPersona(@RequestBody Persona persona){
-		return created(service.createPersona(persona));
+	public ModelAndView createPersona(@RequestParam String nombre,@RequestParam String apellido,@RequestParam Integer edad,@RequestParam String dni){
+		Persona persona = new Persona();
+		persona.setNombre(nombre);
+		persona.setApellido(apellido);
+		persona.setEdad(edad);
+		persona.setDni(dni);
+		service.createPersona(persona);
+		return this.mostrarIndex();
 	}
 	
 	@PatchMapping("/updatePersona")
@@ -56,8 +67,14 @@ public class PersonaController extends BaseApiResponse {
 		return noContent(service.deletePersona(id));
 	}
 	
+	@GetMapping("/botonCrearPersona")
+	public ModelAndView crearPersonas() {
+		ModelAndView mav = new ModelAndView("crearPersona");
+	  return mav;
+	}
+	
 	@GetMapping("/botonListarPersonas")
-	public ModelAndView mostrarEjemplo() {
+	public ModelAndView listarPersonas() {
 		List<Persona> personas = getAllPersonasEntity();
 		ModelAndView mav = new ModelAndView("listarPersona");
 		mav.addObject("personas", personas);
