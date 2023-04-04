@@ -38,8 +38,14 @@
 					<td th:text="${persona.apellido}"></td>
 					<td th:text="${persona.edad}"></td>
 					<td><span th:text="${persona.dni}"></span></td>
-					<td><img th:src="@{/img/icon_edit.png}" src="img/icon_edit.png"></td>
-					<td><img th:src="@{/img/icon_delete.png}" src="img/icon_delete.png"></td>
+					<td>
+					<form th:action="@{/api/v1/buttonTemplateEdit/{id}(id=${persona.id})}" method="get">
+          				<button class="btn btn-warning mb-2" type="submit">Modificar</button>
+        			</form>
+        			<form th:action="@{/api/v1/buttonDelete/{id}(id=${persona.id})}" method="get">
+          				<button class="btn btn-danger mb-2" type="submit">Eliminar</button>
+        			</form>
+					</td>
 				  </tr>
 			</tbody>
 		  </table>

@@ -11,5 +11,6 @@ public interface IPersonaService {
 	public Persona createPersona(Persona persona);
 	public Persona updatePersona(Long id,Persona persona);
 	public Persona deletePersona(Long id);
+	public Persona createEntityPersona(String nombre, String apellido, Integer edad, String dni);
 	
 }
