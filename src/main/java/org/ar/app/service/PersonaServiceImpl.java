@@ -31,13 +31,13 @@ public class PersonaServiceImpl implements IPersonaService {
 	@Override
 	public Persona updatePersona(Long id, Persona persona) {
 		Persona p1 = getPersonaById(id);
-		
+
 		p1.setId(id);
 		p1.setNombre(persona.getNombre());
 		p1.setApellido(persona.getApellido());
 		p1.setEdad(persona.getEdad());
 		p1.setDni(persona.getDni());
-		
+
 		repository.save(p1);
 		return p1;
 	}
@@ -49,6 +49,14 @@ public class PersonaServiceImpl implements IPersonaService {
 		return p1;
 	}
 
-	
-	
+	@Override
+	public Persona createEntityPersona(String nombre, String apellido, Integer edad, String dni) {
+		Persona persona = new Persona();
+		persona.setNombre(nombre);
+		persona.setApellido(apellido);
+		persona.setEdad(edad);
+		persona.setDni(dni);
+		return persona;
+	}
+
 }
